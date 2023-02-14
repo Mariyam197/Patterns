@@ -23,15 +23,16 @@ public class DeliveryTest {
 
     @Test
     void shouldSuccessfulPlanAndReplanMeeting() {
+        DataGenerator.UserInfo validUser = DataGenerator.Registration.generateUser("ru");
         int daysToAddForFirstMeeting = 3;
         String firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
         int daysToAddForSecondMeeting = 7;
         String secondMeetingDate = DataGenerator.generateDate(daysToAddForSecondMeeting);
-        $("[data-test-id=city] input").setValue(DataGenerator.generateCity());
+        $("[data-test-id=city] input").setValue(validUser.getCity());
         $("[data-test-id=date] input").doubleClick().sendKeys(Keys.DELETE);
         $("[data-test-id=date] input").setValue(firstMeetingDate);
-        $("[data-test-id=name] input").setValue(DataGenerator.generateName());
-        $("[data-test-id=phone] input").setValue(DataGenerator.generatePhone());
+        $("[data-test-id=name] input").setValue(validUser.getName());
+        $("[data-test-id=phone] input").setValue(validUser.getPhone());
         $("[data-test-id=agreement]").click();
         $(byText("Запланировать")).click();
         $(byText("Успешно!")).shouldBe(Condition.visible, Duration.ofSeconds(15));
