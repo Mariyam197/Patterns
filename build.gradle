@@ -16,10 +16,10 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.projectlombok:lombok:1.18.22'
-    implementation 'org.junit.jupiter:junit-jupiter:5.6.1'
-    implementation 'com.codeborne:selenide:5.19.0'
-    implementation 'com.github.javafaker:javafaker:1.0.2'
+    testImplementation 'org.projectlombok:lombok:1.18.22'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.6.1'
+    testImplementation 'com.codeborne:selenide:5.19.0'
+    testImplementation 'com.github.javafaker:javafaker:1.0.2'
 }
 
 test {
